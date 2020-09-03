@@ -7,9 +7,9 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class LocationComponent implements OnInit {
 
-    private zipCode: String;
+    private zipCode: string;
 
-    @Output() addEvent = new EventEmitter<String>();
+    @Output() addEvent = new EventEmitter<string>();
 
     constructor() { }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {LocationService} from "../../service/location.service";
+import {OpenWeatherMapService} from "../../service/open-weather-map.service";
 
 @Component({
     selector: 'app-home',
@@ -7,26 +8,28 @@ import {LocationService} from "../../service/location.service";
     styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-    private allLocation: String[]=[];
+    private allLocation: string[]=[];
 
-    constructor(private locationService: LocationService) { }
+    constructor(private locationService: LocationService,
+                private  openWeatherMapService: OpenWeatherMapService)
+    { }
 
     ngOnInit(): void {
         this.getAllLocation();
     }
 
-    addLocation(code: String){
+    addLocation(code: string){
         this.locationService.addLocation(code);
+        this.openWeatherMapService.getWeatherFromZip(code);
         this.getAllLocation();
     }
 
-    removeLocation(code: String){
+    removeLocation(code: string){
         this.locationService.removeLocation(code);
         this.getAllLocation();
     }
 
     private getAllLocation(){
-        //this.allLocation = this.locationService.getAllLocation();
         this.allLocation = this.locationService.getAllLocation();
     }
 

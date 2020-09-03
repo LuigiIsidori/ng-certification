@@ -10,20 +10,20 @@ export class LocationService {
 
     constructor() { }
 
-    addLocation(code: String){
+    addLocation(code: string){
         let zip = this.getAllLocation();
         zip.push(code);
         localStorage.setItem(this.Storagekey,JSON.stringify(zip));
     }
 
-    removeLocation(code: String){
+    removeLocation(code: string){
         let zip = this.getAllLocation();
         localStorage.setItem(this.Storagekey,JSON.stringify(zip.filter(zipCode => zipCode!=code)));
     }
 
-    getAllLocation(): String[]{
+    getAllLocation(): string[]{
         let zipString= localStorage.getItem(this.Storagekey);
-        let zip: String[];
+        let zip: string[];
 
         if(zipString!=null && zipString.length>0){
             zip= JSON.parse(zipString);

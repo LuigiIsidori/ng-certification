@@ -8,12 +8,14 @@ import { WeatherComponent } from './component/weather/weather.component';
 import { LocationComponent } from './component/location/location.component';
 import {AppRoutingModule} from "./app-routing/app-routing.module";
 import {APP_BASE_HREF} from "@angular/common";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
-        AppRoutingModule
+        AppRoutingModule,
+        HttpClientModule
     ],
     declarations: [
         AppComponent,

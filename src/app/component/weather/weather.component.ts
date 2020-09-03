@@ -7,8 +7,8 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 })
 export class WeatherComponent implements OnInit {
 
-    @Input() zipCode:String;
-    @Output() removeEvent = new EventEmitter<String>();
+    @Input() zipCode:string;
+    @Output() removeEvent = new EventEmitter<string>();
 
     constructor() { }
 
