@@ -1,0 +1,14 @@
+<div class="container-fluid">
+
+    <div class="row well">
+        <h2>Enter a zipcode:</h2>
+        <div class="col-sm-3 col-m-3">
+            <input class="form-control" placeholder="zipCode" type="text" id="addLocation" [(ngModel)]="zipCode">
+        </div>
+        <div class="col-sm-3 col-m-3">
+            <button class="btn btn-primary" id="addLocationBtn" (click)="addClick(zipCode)">
+                Add location
+            </button>
+        </div>
+    </div>
+</div>

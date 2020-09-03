@@ -17,12 +17,14 @@
       "dom"
     ],
     "outDir": "./out-tsc/app",
-    "types": []
+    "types": [
+      "jasmine"
+    ]
   },
   "files": [
     "main.ts",
     "polyfills.ts"
-   ],
+  ],
   "include": [
     "src/**/*.d.ts"
   ]

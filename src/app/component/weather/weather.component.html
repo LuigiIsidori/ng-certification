@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="well flex">
         <div>
-            <h3>Rancho Cordova (95742)</h3>
+            <h3>Rancho Cordova ({{zipCode}})</h3>
             <h4>Current conditions: Clouds</h4>
             <h4>Temperatures today:</h4>
             <p>
@@ -14,7 +14,7 @@
             </p>
         </div>
         <div>
-            <span class="close">×</span>
+            <span class="close" (click)="closeBox()">×</span>
             <img src="https://www.angulartraining.com/images/weather/sun.png">
         </div>
     </div>
