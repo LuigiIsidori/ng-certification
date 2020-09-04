@@ -19,9 +19,12 @@ export class HomeComponent implements OnInit {
     }
 
     addLocation(code: string){
-        this.locationService.addLocation(code);
-        this.openWeatherMapService.getWeatherFromZip(code);
-        this.getAllLocation();
+        if(this.allLocation.filter(zip => zip==code).length==0) {
+            this.locationService.addLocation(code);
+            this.openWeatherMapService.getWeatherFromZip(code);
+            this.getAllLocation();
+        }
+        else alert("this zipCode is already stored")
     }
 
     removeLocation(code: string){
