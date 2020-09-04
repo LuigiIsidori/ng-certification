@@ -1,4 +1,7 @@
 <div class="container-fluid">
+
     <app-location (addEvent)="addLocation($event)" ></app-location>
-    <app-weather *ngFor="let location of allLocation" [zipCode]="location" (removeEvent)="removeLocation(location)"></app-weather>
+    <app-weather *ngFor="let weather of allWeather" [weather]="weather"  (removeEvent)="removeLocation(weather.codeRequested)"></app-weather>
+
 </div>
+<!--[weather]="getSingleWeather(location)"-->

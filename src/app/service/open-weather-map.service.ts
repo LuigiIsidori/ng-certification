@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpParams} from "@angular/common/http";
-import {map} from "rxjs/internal/operators";
+import {HttpClient} from "@angular/common/http";
 import {OpenWeatherMapModel} from "../model/open-weather-map-model";
 import {OpenWeatherMapResponse} from "../model/open-weather-map-response";
+import {map} from "rxjs/internal/operators";
+import {Observable} from "rxjs/index";
 
 @Injectable({
     providedIn: 'root'
@@ -14,20 +15,20 @@ export class OpenWeatherMapService {
     data: OpenWeatherMapModel;
     constructor(private httpClient: HttpClient) {}
 
-    public getWeatherFromZip(code: string){
+    public getWeatherFromZip(code: string):Observable<OpenWeatherMapResponse>{
 
-        this.httpClient.get<OpenWeatherMapModel>('https://api.openweathermap.org/data/2.5/weather',{
+        return this.httpClient.get<OpenWeatherMapModel>('https://api.openweathermap.org/data/2.5/weather',{
             params: {
                 'zip':code,
                 'appid':'5a4b2d457ecbef9eb2a71e480b947604'
             }}).pipe(map(resp => (({
             codeRequested:code,
             responseBody: resp
-        })))).subscribe( obj => this.addWeatherInStorage(obj));
+        }))));
 
     }
 
-    private addWeatherInStorage(weather: OpenWeatherMapResponse){
+    addWeatherInStorage(weather: OpenWeatherMapResponse){
 
         let weatherMap: OpenWeatherMapResponse[];
         weatherMap = this.getAllWeatherMap();
@@ -56,10 +57,17 @@ export class OpenWeatherMapService {
 
     }
 
-    removeWeatherMap(weather: OpenWeatherMapResponse){
+    private removeWeatherMap(weather: OpenWeatherMapResponse){
 
         let weatherMap: OpenWeatherMapResponse[] = this.getAllWeatherMap();
         localStorage.setItem(this.Storagekey,JSON.stringify(weatherMap.filter(weatherStored => weatherStored.codeRequested!=weather.codeRequested)));
+
+    }
+
+    removeWeatherMapFromZip(code: string){
+
+        let weatherMap: OpenWeatherMapResponse[] = this.getAllWeatherMap();
+        localStorage.setItem(this.Storagekey,JSON.stringify(weatherMap.filter(weatherStored => weatherStored.codeRequested!=code)));
 
     }
 }

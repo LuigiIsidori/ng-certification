@@ -1,4 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {OpenWeatherMapModel} from "../../model/open-weather-map-model";
+import {OpenWeatherMapResponse} from "../../model/open-weather-map-response";
 
 @Component({
     selector: 'app-weather',
@@ -7,12 +9,13 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 })
 export class WeatherComponent implements OnInit {
 
-    @Input() zipCode:string;
+    @Input() weather: OpenWeatherMapResponse;
     @Output() removeEvent = new EventEmitter<string>();
 
     constructor() { }
 
     ngOnInit(): void {
+        console.log(this.weather);
     }
 
     closeBox(){
