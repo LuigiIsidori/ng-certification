@@ -78,7 +78,7 @@ export class OpenWeatherMapService {
         return this.httpClient.get<OpenWeatherMapModel5D>('https://api.openweathermap.org/data/2.5/forecast/daily',{
             params: {
                 'zip':code,
-                'cnt':5,
+                'cnt':'5',
                 'appid':'5a4b2d457ecbef9eb2a71e480b947604'
             }}).pipe(map(resp => (({
             codeRequested:code,

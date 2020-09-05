@@ -1,3 +1,4 @@
+import {Timestamp} from "rxjs/internal/operators/timestamp";
 
 export interface OpenWeatherMapModel{
 
@@ -12,5 +13,10 @@ export interface OpenWeatherMapModel{
     }
     name?: string;
     cod?: number;
+    dt?: string;
+    temp?:{
+        min: string,
+        max: string
+    }
 
 }

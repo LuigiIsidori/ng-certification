@@ -1,0 +1,12 @@
+<h4>5-day forecast page:</h4>
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">5-day forecast for {{child.hasOwnProperty('name')?child.name:'-'}}</h3>
+        </div>
+        <ul class="list-group">
+            <app-five-day-forecast [zipCode]="zipCode" #child></app-five-day-forecast>
+        </ul>
+    </div>
+    <button class="btn btn-success" tabindex="0" id="mainPageBtn" [routerLink]="['']">&lt; Back to main page</button>
+</div>

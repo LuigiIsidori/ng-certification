@@ -10,6 +10,7 @@ import {AppRoutingModule} from "./app-routing/app-routing.module";
 import {APP_BASE_HREF} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
 import { FiveDayForecastComponent } from './component/five-day-forecast/five-day-forecast.component';
+import { ForecastPageComponent } from './component/forecast-page/forecast-page.component';
 
 @NgModule({
     imports: [
@@ -23,7 +24,8 @@ import { FiveDayForecastComponent } from './component/five-day-forecast/five-day
         HomeComponent,
         WeatherComponent,
         LocationComponent,
-        FiveDayForecastComponent
+        FiveDayForecastComponent,
+        ForecastPageComponent
     ],
     bootstrap: [
         AppComponent
