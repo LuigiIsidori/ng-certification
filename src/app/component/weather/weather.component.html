@@ -2,7 +2,7 @@
     <div class="well flex">
         <div>
             <h3>{{weather.responseBody.name}} ({{weather.codeRequested}})</h3>
-            <h4>Current conditions: {{weather.responseBody.weather[0].description}}</h4>
+            <h4>Current conditions: {{currClimate}}</h4>
             <h4>Temperatures today:</h4>
             <p>
                 Current {{weather.responseBody.main.temp}}
@@ -15,7 +15,7 @@
         </div>
         <div>
             <span class="close" (click)="closeBox()">×</span>
-            <img src="https://www.angulartraining.com/images/weather/sun.png">
+            <img src="{{imgUrl}}">
         </div>
     </div>
 </div>
