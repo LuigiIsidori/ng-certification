@@ -4,6 +4,8 @@ import {OpenWeatherMapModel} from "../model/open-weather-map-model";
 import {OpenWeatherMapResponse} from "../model/open-weather-map-response";
 import {map} from "rxjs/internal/operators";
 import {Observable} from "rxjs/index";
+import {OpenWeatherMapResponse5D} from "../model/open-weather-map-response-5D";
+import {OpenWeatherMapModel5D} from "../model/open-weather-map-model-5D";
 
 @Injectable({
     providedIn: 'root'
@@ -70,4 +72,19 @@ export class OpenWeatherMapService {
         localStorage.setItem(this.Storagekey,JSON.stringify(weatherMap.filter(weatherStored => weatherStored.codeRequested!=code)));
 
     }
+
+    getFiveDayForecast(code: string): Observable<OpenWeatherMapResponse5D>{
+
+        return this.httpClient.get<OpenWeatherMapModel5D>('https://api.openweathermap.org/data/2.5/forecast/daily',{
+            params: {
+                'zip':code,
+                'cnt':5,
+                'appid':'5a4b2d457ecbef9eb2a71e480b947604'
+            }}).pipe(map(resp => (({
+            codeRequested:code,
+            responseBody: resp
+        }))));
+
+    }
+
 }

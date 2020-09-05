@@ -10,7 +10,7 @@ export interface OpenWeatherMapModel{
         temp_min: string;
         temp_max: string;
     }
-    name: string;
-    cod: number;
+    name?: string;
+    cod?: number;
 
 }
