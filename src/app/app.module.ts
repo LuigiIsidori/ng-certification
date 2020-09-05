@@ -9,6 +9,7 @@ import { LocationComponent } from './component/location/location.component';
 import {AppRoutingModule} from "./app-routing/app-routing.module";
 import {APP_BASE_HREF} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
+import { FiveDayForecastComponent } from './component/five-day-forecast/five-day-forecast.component';
 
 @NgModule({
     imports: [
@@ -21,7 +22,8 @@ import {HttpClientModule} from "@angular/common/http";
         AppComponent,
         HomeComponent,
         WeatherComponent,
-        LocationComponent
+        LocationComponent,
+        FiveDayForecastComponent
     ],
     bootstrap: [
         AppComponent

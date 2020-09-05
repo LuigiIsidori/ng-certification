@@ -10,7 +10,7 @@
                 - Min {{weather.responseBody.main.temp_min}}
             </p>
             <p>
-                <a href="/forecast/95742">Show 5-day forecast for {{weather.responseBody.name}}</a>
+                <a [routerLink]="['/forecast',weather.codeRequested]">Show 5-day forecast for {{weather.responseBody.name}}</a>
             </p>
         </div>
         <div>
