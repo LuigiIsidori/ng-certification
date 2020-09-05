@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {OpenWeatherMapModel} from "../../model/open-weather-map-model";
 import {OpenWeatherMapResponse} from "../../model/open-weather-map-response";
 import {Climate} from "../../model/climate";
 
